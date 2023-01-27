@@ -10,6 +10,7 @@ class Notification extends Message
     private $body;
     private $badge;
     private $icon;
+    private $image;
     private $sound;
     private $clickAction;
     private $tag;
@@ -60,6 +61,12 @@ class Notification extends Message
         return $this;
     }
 
+    public function setImage($image)
+    {
+        $this->image = $image;
+        return $this;
+    }
+
     public function setClickAction($actionName)
     {
         $this->clickAction = $actionName;
@@ -98,6 +105,9 @@ class Notification extends Message
         }
         if ($this->icon) {
             $jsonData['icon'] = $this->icon;
+        }
+        if ($this->image) {
+            $jsonData['image'] = $this->image;
         }
         if ($this->clickAction) {
             $jsonData['click_action'] = $this->clickAction;
